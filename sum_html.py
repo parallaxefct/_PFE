@@ -25,6 +25,7 @@ for tag in tags:
     decoded_tag = tag.decode().strip()
     x = re.findall('[0-9]+', decoded_tag)
     #counter
+    print(type(x))
     counter = len(x)
     #capture each string, convert to interger and find the sum
     while counter != 0:
