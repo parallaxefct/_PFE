@@ -11,7 +11,10 @@ sifter = BeautifulSoup(html, 'html.parser')
 
 #sifter pulls html anchors and assigns to 'tags' varibale
 tags = sifter('a', None)
+#create blank list to capture names
+names = []
 
 for tag in tags:
     x = tag.get('href', None)
-    print(x)
+    name = re.findall('E+', x)
+    print(name)
