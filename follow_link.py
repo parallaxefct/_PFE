@@ -28,10 +28,16 @@ count = int(input('Enter count: '))
 position = int(input('Enter position: '))
 
 
-tags_parsed = parse_url(url)
-all_links = cycle_links(tags_parsed, position)
 
-print(all_links)
+tags_parsed = parse_url(url)
+parsed_link = cycle_links(tags_parsed, position)
+
+while count != 0:
+    url = parsed_link
+
+
+
+print(parsed_links)
 
 #iterates through tags_parsed
 
