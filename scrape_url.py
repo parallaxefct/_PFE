@@ -16,5 +16,6 @@ names = []
 
 for tag in tags:
     x = tag.get('href', None)
+    #figure out regex to pull just the name and store it in the blank list created
     name = re.findall('E+', x)
     print(name)
