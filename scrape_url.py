@@ -17,5 +17,5 @@ names = []
 for tag in tags:
     x = tag.get('href', None)
     #figure out regex to pull just the name and store it in the blank list created
-    name = re.findall('E+', x)
+    name = re.findall('(E.+)[.]', x) #logic: () indicates starts and stop // E is the character that is searched for to start the 'scan' // the '.' matches to ANY character after the E // the '+' will repeat to characters after // () looks to end the 'scan' and '[.] is the character that is searched for to end the scan'
     print(name)
