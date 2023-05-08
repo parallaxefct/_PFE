@@ -22,12 +22,9 @@ def cycle_links(anchor_tags, position):
             break
     return x
 
-
-
 url = input('Enter URL: ')
 count = int(input('Enter count: '))
 position = int(input('Enter position: '))
-
 
 
 #pass url through and recieve anchor list
