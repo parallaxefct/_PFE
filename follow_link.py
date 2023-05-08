@@ -1,11 +1,9 @@
-#
+#connect to given webpage // scrape for all URL links
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
 import re
 
-names = []
-
-#provide url, assign entire string to varible, parse string via BeautifulSoup
+#provide url // assign entire string to varible // parse string via BeautifulSoup // capture anchors to TAGS
 def parse_url(url):
     html = urllib.request.urlopen(url).read()
     sifter = BeautifulSoup(html, 'html.parser')
@@ -13,8 +11,9 @@ def parse_url(url):
     tags = sifter('a', None)
     return tags
 
-def cycle_links(tags_parsed, position):
-    for tag in tags_parsed:
+#passes anchor_tags and position // iterates through list and captures url at position and returns
+def cycle_links(anchor_tags, position):
+    for tag in anchor_tags:
         #gets HTML tag as string
         x = tag.get('href', None)
         position -= 1
@@ -23,22 +22,25 @@ def cycle_links(tags_parsed, position):
             break
     return x
 
+
+
 url = input('Enter URL: ')
 count = int(input('Enter count: '))
 position = int(input('Enter position: '))
 
 
 
-tags_parsed = parse_url(url)
-parsed_link = cycle_links(tags_parsed, position)
-
-while count != 0:
-    url = parsed_link
-
+#pass url through and recieve anchor list
+anchor_tags = parse_url(url)
+#cycle through links based on VALUE of position // return URL
+parsed_link = cycle_links(anchor_tags, position)
 
 
-print(parsed_links)
+while count != 1:
+    #pass new URL through and recieve new anchor list
+    anchor_tags = parse_url(parsed_link)
+    #cycle through new list of anchor tags
+    parsed_link = cycle_links(anchor_tags, position)
+    count -= 1
 
-#iterates through tags_parsed
-
-#    name = re.findall('(E.+)[.]', x)
+print(parsed_link)
