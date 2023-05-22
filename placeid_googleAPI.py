@@ -7,7 +7,7 @@ serviceurl = 'http://py4e-data.dr-chuck.net/json?' #provide the intial url
 
 
 address = input('Enter Location: ') #prompt for location
-ad_key = {'address' : address, 'key' : 42} #create a dictionary and create key:value for address and key
+ad_key = {'address' : address, 'key' : 42} #create a dictionary and create key:value for address and key.
 
 url = serviceurl + urllib.parse.urlencode(ad_key) #encode location and concantenate to serviceurl
 handle = urllib.request.urlopen(url) #create handle
