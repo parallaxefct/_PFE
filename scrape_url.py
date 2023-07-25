@@ -1,4 +1,4 @@
-#
+#this scraper is built to work with urls/embedded links. hence the use of anchor tags
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
 import re
