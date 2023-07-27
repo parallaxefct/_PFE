@@ -2,7 +2,7 @@ import urllib.request, urllib.parse, urllib.error
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import sqlite3
-import re
+
 
 
 #build SQL database first
@@ -25,13 +25,14 @@ users_count = {} # blank dictionary | USE THIS
 
 for line in total_string: # loops through each line
     if line.startswith('From: '): # if line starts with "From: "
-        line_parse = line.split() # then split line by white spaces and return list as line_parse
-        if line_parse[1] not in users_count:
-            users_count[line_parse[1]] = 1
-        else:
-            users_count[line_parse[1]] += 1
+        email = line.split() # then split line by white spaces and return list as email
+        print(email[1])
+#        if line_parse[1] not in users_count:
+#            users_count[line_parse[1]] = 1
+#        else:
+#            users_count[line_parse[1]] += 1
 
-print(users_count)
+#print(users_count)
 
 
-#figure out a way to capture the email, search through line_parse for occurances and add the name of email and occurances to dictionary as key|value 
+#figure out a way to capture the email, search through line_parse for occurances and add the name of email and occurances to dictionary as key|value
